@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+#The scrpt to be used in connecting to a server using ssh: we start with SSH keyword username and then the private key
+ssh ubuntu -i ~/.ssh/school
