@@ -20,9 +20,9 @@ scp -o "strictHostKeyChecking=no" -i "$path_to_ssh_key" "$path_to_file" "$userna
 
 
 #checking if the file transfer was successful 
- if [$? -eq 0]
+ if [ $ -eq 0 ]
 then 
     echo "FILE WAS TRANSFERED SUCCESSFULLY"
 else
-    echo "File Transfer Failed "
+    echo "FILE TRANSFER FAILED "
 fi 
