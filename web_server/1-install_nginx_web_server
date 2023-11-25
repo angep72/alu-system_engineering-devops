@@ -4,7 +4,7 @@ sudo apt-get update
 sudo apt-get install nginx
 sudo ufw 'Nginx HTTP'
 
-echo "Hello World" | tee /var/www/html/index.html
+echo "Holberton School`" | tee /var/www/html/index.html
 #Testing our nginx 
 sudo nginx -t
 
