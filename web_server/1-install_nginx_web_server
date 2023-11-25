@@ -1,11 +1,43 @@
 #!/usr/bin/env bash
-#Commnds for installing nginx on web server
+# Update the package list to make sure you have the latest version of packages
 sudo apt-get update
-sudo apt-get install nginx
-sudo ufw 'Nginx HTTP'
 
-echo "Holberton School" | tee /var/www/html/index.html
-#Testing our nginx 
-sudo nginx -t
+# Install Nginx
+sudo apt-get install -y nginx
 
-sudo service nginx start
+# Create a default Nginx configuration that listens on port 80
+echo "server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+
+    root /var/www/html;
+    index index.html index.htm index.nginx-debian.html;
+
+    server_name _;
+
+    location / {
+        # Additional configuration if needed
+    }
+
+    error_page 404 /404.html;
+    location = /404.html {
+        internal;
+    }
+
+    # Additional server blocks for different requirements can be added here
+
+}" | sudo tee /etc/nginx/sites-available/default
+
+# Reload Nginx to apply changes
+sudo nginx -s reload
+
+# Create a sample HTML file with the required string
+echo "Holberton School for the win!" | sudo tee /var/www/html/index.html
+
+# Test Nginx configuration with curl
+if [ "$(curl -s localhost)" == "Holberton School for the win!" ]; then
+    echo "Nginx installed and configured successfully."
+else
+    echo "Error: Nginx configuration test failed."
+fi
+
