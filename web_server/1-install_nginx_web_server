@@ -8,4 +8,4 @@ echo "Holberton School" | tee /var/www/html/index.html
 #Testing our nginx 
 sudo nginx -t
 
-sudo service nginx reload
+sudo service nginx start
