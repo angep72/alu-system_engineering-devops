@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
-
 #configuring web-01 to have an Http response header 
 
-# Updating Packages before performing installations
 sudo apt-get update
 sudo apt-get install -y nginx
 
