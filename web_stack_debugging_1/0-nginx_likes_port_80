@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# configuring an inginx server to  listen on port 80
+
+#remove the default nginx configuration file
+rm /etc/nginx/sites-enabled/default
+# configuring nginx conguration file
+ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+# restart nginx 
+service restart
