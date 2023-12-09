@@ -1,0 +1,7 @@
+!/usr/bin/env bash
+# configuring an inginx server to  listen on port 80
+
+sudo sed -i "s/8080/80/" /etc/nginx/sites-enabled/default
+sudo service nginx restart
+echo "" | sudo dd status=none of=/run/nginx.pid
+kill "$(pgrep 'nginx' | head -1)"
